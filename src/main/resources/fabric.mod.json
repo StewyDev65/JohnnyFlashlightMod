@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "flashlightmod",
+  "version": "${version}",
+  "name": "FlashlightMod",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/flashlightmod/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "org.johnnymod.flashlightmod.client.FlashlightmodDataGenerator"
+    ],
+    "client": [
+      "org.johnnymod.flashlightmod.client.FlashlightmodClient"
+    ],
+    "main": [
+      "org.johnnymod.flashlightmod.Flashlightmod"
+    ]
+  },
+  "mixins": [
+    "flashlightmod.mixins.json",
+    {
+      "config": "flashlightmod.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
