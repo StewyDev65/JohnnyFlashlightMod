@@ -1,0 +1,6 @@
+{
+    "parent": "flashlight:item/flashlight_base",
+    "textures": {
+        "1": "flashlight:item/bulb_texture_white"
+    }
+}
