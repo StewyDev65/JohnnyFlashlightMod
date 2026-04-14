@@ -7,7 +7,7 @@
   "authors": [],
   "contact": {},
   "license": "All-Rights-Reserved",
-  "icon": "assets/flashlightmod/icon.png",
+  "icon": "assets/flashlight/icon.png",
   "environment": "*",
   "entrypoints": {
     "fabric-datagen": [
