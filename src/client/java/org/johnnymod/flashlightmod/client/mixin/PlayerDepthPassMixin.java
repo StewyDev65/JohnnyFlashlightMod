@@ -1,5 +1,6 @@
 package org.johnnymod.flashlightmod.client.mixin;
 
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.VertexConsumerProvider;
@@ -56,14 +57,17 @@ public abstract class PlayerDepthPassMixin<T extends LivingEntity, M extends Ent
 
         if (!(flashlight_currentEntity instanceof AbstractClientPlayerEntity player)) return;
 
-        Identifier skin = player.getSkinTextures().texture();
+        MinecraftClient client = MinecraftClient.getInstance();
+
+        // Skip for local player in third person — body would shadow their own beam
+        if (player == client.player && !client.options.getPerspective().isFirstPerson()) {
+            return;
+        }
 
         VertexConsumer consumer = flashlight_currentProvider.getBuffer(
-                PlayerDepthRenderLayer.get(skin)
+                PlayerDepthRenderLayer.get(player.getSkinTextures().texture())
         );
 
-        // Render with the same matrices that were used for the main model —
-        // they are still correctly set up at this injection point
         model.render(matrices, consumer, flashlight_currentLight,
                 net.minecraft.client.render.OverlayTexture.DEFAULT_UV, -1);
     }
