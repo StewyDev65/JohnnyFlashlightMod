@@ -4,7 +4,8 @@
   "package": "org.johnnymod.flashlightmod.client.mixin",
   "compatibilityLevel": "JAVA_21",
   "client": [
-    "PlayerDepthPassMixin"
+    "PlayerDepthPassMixin",
+    "CapeDepthMixin"
   ],
   "injectors": {
     "defaultRequire": 1
