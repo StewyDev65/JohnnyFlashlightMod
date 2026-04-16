@@ -1,9 +1,10 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "org.johnnymod.flashlightmod.mixin.client",
+  "package": "org.johnnymod.flashlightmod.client.mixin",
   "compatibilityLevel": "JAVA_21",
   "client": [
+    "PlayerDepthPassMixin"
   ],
   "injectors": {
     "defaultRequire": 1
